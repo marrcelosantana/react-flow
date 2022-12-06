@@ -4,26 +4,25 @@ import ReactFlow, {
   Background,
   applyNodeChanges,
   applyEdgeChanges,
+  addEdge,
 } from "reactflow";
 import "reactflow/dist/style.css";
 
 const initialNodes = [
   {
     id: "1",
-    data: { label: "Node 1" },
+    data: { label: "Hello" },
     position: { x: 0, y: 0 },
     type: "input",
   },
   {
     id: "2",
-    data: { label: "Node 2" },
+    data: { label: "World" },
     position: { x: 100, y: 100 },
   },
 ];
 
-const initialEdges = [
-  { id: "1-2", source: "1", target: "2", label: "to the", type: "step" },
-];
+const initialEdges = [];
 
 function App() {
   const [nodes, setNodes] = useState(initialNodes);
@@ -38,6 +37,11 @@ function App() {
     []
   );
 
+  const onConnect = useCallback(
+    (params) => setEdges((eds) => addEdge(params, eds)),
+    []
+  );
+
   return (
     <div style={{ height: "100vh", width: "100%" }}>
       <ReactFlow
@@ -45,6 +49,7 @@ function App() {
         onNodesChange={onNodesChange}
         edges={edges}
         onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
       >
         <Background />
         <Controls />
