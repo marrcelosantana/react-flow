@@ -11,14 +11,24 @@ import "reactflow/dist/style.css";
 const initialNodes = [
   {
     id: "1",
-    data: { label: "Hello" },
+    data: { label: "Node 1" },
     position: { x: 0, y: 0 },
     type: "input",
   },
   {
     id: "2",
-    data: { label: "World" },
+    data: { label: "Node 2" },
     position: { x: 100, y: 100 },
+  },
+  {
+    id: "3",
+    data: { label: "Node 3" },
+    position: { x: 200, y: 200 },
+  },
+  {
+    id: "4",
+    data: { label: "Node 4" },
+    position: { x: 300, y: 300 },
   },
 ];
 
